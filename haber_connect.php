@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="news.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hatalı Giriş</title>
+    <title>Haber Ekleme</title>
+    <style>
+        .haberim
+        {
+            color:white;
+        }
+    </style>
+    
 </head>
 <body>
-    <aside>
+<aside>
         <p style="font-size: 25px; color:#EEEEEE;"> Menü </p>
         <a href="aindex.php">
             <i class="fa fa-user-o" aria-hidden="true"></i>
@@ -48,43 +55,48 @@
             }
         ?>  
     </aside>
+    <?php
+        include("zdbbaglanti_haber.php");
+
+        if (isset($_SESSION["deneme"])) {
+            $upperad=$_SESSION["deneme"];
+            $editorad = ucfirst($upperad); 
+        }
+        else{
+            $editorad = "---";
+        }
+
+        if (isset($_SESSION["surnamego"])) {
+            $uppersoyad = $_SESSION["surnamego"];
+            $editorsurname = ucfirst($uppersoyad);   
+        }
+        else{
+            $editorsurname = "---";
+        }
+
+        if(isset($_POST))
+        {
+            $hbBaslik = trim($_POST['haber_baslik']);
+            $haber = trim($_POST['haber']);
+
+            $command = $connection->prepare("INSERT INTO haberbilgileri set haberBasligi = ?, haber = ?, editorname = ?, editorsurname = ?");
+            $insert = $command->execute(array($hbBaslik,$haber,$editorad,$editorsurname));
+            if ($insert)
+            {
+                ?>
+                    <div class="error">
+                        <h1 style="margin-top: 150px; margin-left: 39%; font-size: 55px; color:#EEEEEE;">
+                            Haberiniz Yayınlandı
+                        </h1>
+                    </div>
+                <?php
+            }
+            else
+            {
+                echo "Olmadı";
+            }
+        }
+    ?>
 </body>
 </html>
 
-<?php
-    session_start();
-    include("zdbbaglanti_haber.php");
-
-    if (isset($_SESSION["deneme"])) {
-        $upperad=$_SESSION["deneme"];
-        $editorad = ucfirst($upperad); 
-    }
-    else{
-        $editorad = "---";
-    }
-
-    if (isset($_SESSION["surnamego"])) {
-        $uppersoyad = $_SESSION["surnamego"];
-        $editorsurname = ucfirst($uppersoyad);   
-    }
-    else{
-        $editorsurname = "---";
-    }
-
-    if(isset($_POST))
-    {
-        $hbBaslik = trim($_POST['haber_baslik']);
-        $haber = trim($_POST['haber']);
-
-        $command = $connection->prepare("INSERT INTO haberbilgileri set haberBasligi = ?, haber = ?, editorname = ?, editorsurname = ?");
-        $insert = $command->execute(array($hbBaslik,$haber,$editorad,$editorsurname));
-        if ($insert)
-        {
-            echo "Eklendi";
-        }
-        else
-        {
-            echo "Olmadı";
-        }
-    }
-?>

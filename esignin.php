@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="news.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kullanıcı Giriş</title>
 </head>
 <body>
-    <aside>
+    <!-- <aside>
         <p style="font-size: 25px; color:#EEEEEE;"> Menü </p>
         <a href="aindex.php">
             <i class="fa fa-user-o" aria-hidden="true"></i>
@@ -47,7 +48,7 @@
                 echo "<p>YOK</p>";
             }
         ?>  
-    </aside>
+    </aside> -->
     <div class="anaforum">
         <form name = "goforum" id = "goforum" action="user_data_control.php" method = "POST">
             <input style = "margin-top:35px" type="text" required="required" name ="name" id = "name" placeholder = " Ad">

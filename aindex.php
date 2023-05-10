@@ -12,7 +12,7 @@
         <p style="font-size: 25px; color:#EEEEEE;"> Menü </p>
         <a href="aindex.php">
             <i class="fa fa-user-o" aria-hidden="true"></i>
-            Anasayfasdfad
+            A
         </a>
         <a href="bmynews.php">
             <i class="fa fa-laptop" aria-hidden="true"></i>

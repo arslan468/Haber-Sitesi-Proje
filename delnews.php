@@ -49,6 +49,48 @@
             }
         ?>  
     </aside>
-    
+    <div class="anaforum">
+        <table>
+        <tr>
+            <td>İD</td>
+            <td>Haber Başlığı</td>
+            <td>Haber İçeriği</td>
+            <td>Editör İsim</td>
+            <td>Editör Soyad</td>
+            <td>Haberin Yazıldığı Tarih</td>
+        </tr>
+        <?php 
+            include("zdbbaglanti_haber.php");
+            //Bir mySQL sorgusu ile tüm üyeler tablosunu bir değişkene atıyoruz.
+            $verileriCek = mysql_query("select * from haberbilgileri");
+            
+            //Bu değişken içerisine çekilen tabloyu bir döngü ile b isimli dizi içerisine çekiyoruz.
+            while ($b=mysql_fetch_array($verileriCek)){
+                    
+                //Dizi içerisine giriyoruz ve Tablo içerisinden çekilecek olan tüm sütunları tek tek değişken ierisine atıyoruz.
+                $id = $b['id'];
+                $haberBaslig = $b['haberBasligi'];
+                $haber = $b['haber'];
+                $name = $b['editorname'];
+                $surname = $b['editorsurname'];
+                $time = $b['time'];
+                
+                    
+                //Tablonun ikinci satırına denk gelen bu alanda gerekli yerlere bu değişkenleri giriyoruz. 
+                echo "<tr>
+                    <td>$id</td>
+                    <td>$haberBaslig</td>
+                    <td>$haber</td>
+                    <td>$name</td>
+                    <td>$surname</td>
+                    <td>$time</td>
+                </tr>";
+                    
+            }
+                    
+    ?>
+                    
+    </table>
+    </div>
 </body>
 </html>

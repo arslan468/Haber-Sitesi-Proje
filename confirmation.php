@@ -8,8 +8,9 @@
         $ad = trim($_POST['name']);
         $soyad = trim($_POST['surname']);
         $sifre = trim($_POST['password']);
+        $sifre1 = md5($sifre);
         $command = $connection-> prepare("INSERT INTO user_data set user_name = ?, user_surname = ?, user_password = ?");
-        $insert =$command->execute(array($ad,$soyad,$sifre));
+        $insert =$command->execute(array($ad,$soyad,$sifre1));
         if ($insert) 
         {
             $SESSION["usname"]=$ad;

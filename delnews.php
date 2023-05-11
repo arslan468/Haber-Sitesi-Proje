@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="news.css">
-
+    <link rel="stylesheet" href="signin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haber Sil</title>
 </head>
@@ -49,8 +50,8 @@
             }
         ?>  
     </aside>
-    <div class="anaforum">
-        <table>
+    <div class="anaforum1">
+        <table class="table table-dark table-striped">
         <tr>
             <td>İD</td>
             <td>Haber Başlığı</td>
@@ -62,10 +63,10 @@
         <?php 
             include("zdbbaglanti_haber.php");
             //Bir mySQL sorgusu ile tüm üyeler tablosunu bir değişkene atıyoruz.
-            $verileriCek = mysql_query("select * from haberbilgileri");
-            
+            $verileriCek = $connection->prepare("select * from haberbilgileri");
+            $verileriCek->execute();
             //Bu değişken içerisine çekilen tabloyu bir döngü ile b isimli dizi içerisine çekiyoruz.
-            while ($b=mysql_fetch_array($verileriCek)){
+            while ($b=$verileriCek->fetch(PDO::FETCH_ASSOC)){
                     
                 //Dizi içerisine giriyoruz ve Tablo içerisinden çekilecek olan tüm sütunları tek tek değişken ierisine atıyoruz.
                 $id = $b['id'];

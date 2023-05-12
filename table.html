@@ -8,11 +8,80 @@
     <link rel="stylesheet" href="signin.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        $('a.top').click(function(){
+        $(document.body).animate({scrollTop : 0},800);
+        return false;    });
+
+        function getid(obj) {
+            var data = document.getElementById(obj.animateId);
+            var elem = document.getElementById("image");
+            var tur = document.getElementsByTagName("tr");
+            console.log(tur);
+        }
+    </script>
+    <style>
+        .lookup 
+        {
+            position: fixed;
+            border-radius: 35px;
+            width: 50px;
+            height: 50px;
+            top: 89%;
+            left: 94%;
+            transition: 0.5s;
+        }
+
+        .lookup:hover
+        {
+            background-color:#676e79 ;
+            transition: 0.5s;
+        }
+
+        /* .myhover
+        {
+            --bs-table-color: #fff;
+            --bs-table-bg: #212529;
+            --bs-table-border-color: #373b3e;
+            --bs-table-striped-bg: #2c3034;
+            --bs-table-striped-color: #fff;
+            --bs-table-active-bg: #373b3e;
+            --bs-table-active-color: #fff;
+            --bs-table-hover-bg: #323539;
+            --bs-table-hover-color: #fff;
+            color: var(--bs-table-color);
+            border-color: var(--bs-table-border-color);
+            vertical-align: top;
+            width: 90%;
+            margin-bottom: 1rem;
+            --bs-table-accent-bg: transparent;
+            caption-side: bottom;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            display: table;
+            text-indent: initial;
+            border-spacing: 2px;
+        } */
+
+        .myhover tr:hover
+        {
+            background-color: coral;
+        }
+
+        tr:hover {background-color: coral;}
+    </style>
 </head>
 <body>
+
+    <div class="lookup">
+        <a class="top" href="#">
+            <img style="width: 50px; height: 50px;" src="up.png" alt="">
+        </a>
+    </div>
+
     <div class="anaforum1">
-        <table class="table table-dark table-striped">
-            <tr>
+        <table class="table table-dark table-striped myhover">
+            <tr id="img" onmouseover="getid(this);">
                 <td>İD</td>
                 <td>Haber Başlığı</td>
                 <td>Haber İçeriği</td>
@@ -20,7 +89,31 @@
                 <td>Editör Soyad</td>
                 <td>Haberin Yazıldığı Tarih</td>
             </tr>
-            <tr>
+            <tr id="image"  onmouseover="getid(this);">
+                <td>$id</td>
+                <td>$haberBaslig</td>
+                <td>$haber</td>
+                <td>$name</td>
+                <td>$surname</td>
+                <td>$time</td>
+            </tr>
+            <tr id="3"  onmouseover="getid(this);">
+                <td>$id</td>
+                <td>$haberBaslig</td>
+                <td>$haber</td>
+                <td>$name</td>
+                <td>$surname</td>
+                <td>$time</td>
+            </tr>
+            <tr id="4"  onmouseover="getid(this);">
+                <td>$id</td>
+                <td>$haberBaslig</td>
+                <td>$haber</td>
+                <td>$name</td>
+                <td>$surname</td>
+                <td>$time</td>
+            </tr>
+            <tr id="5"  onmouseover="getid(this);">
                 <td>$id</td>
                 <td>$haberBaslig</td>
                 <td>$haber</td>

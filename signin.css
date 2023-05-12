@@ -16,9 +16,17 @@ body, .deneme
     border-radius: 40px;
 }
 
+#tablobaslik
+{
+    font:Roboto;
+    color: #00ADB5;
+}
+
+
 .anaforum1
 {
     background-image: linear-gradient(0deg ,#222831, #00ADB5 ,#222831);
+    display: block;
     margin: auto;
     width: 800px;
     height: 600px;
@@ -80,6 +88,8 @@ body, .deneme
     line-height: 26px;
     margin-top: 20px;
 }
+
+
 
 .btnstyle:hover
 {

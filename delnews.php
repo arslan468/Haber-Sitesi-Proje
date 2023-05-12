@@ -14,6 +14,8 @@
         return false;    });
         
 
+        const kalm = document.querySelector("#yazdir");
+        const gettID = (id)=>{kalm.value=id;}
         // or attachEvent, depends on browser
         }
     </script>
@@ -95,6 +97,8 @@
     </aside>
 
     <div class="anaforum1">
+        <input type="text" id="yazdir">
+
         <table class="table table-dark table-striped">
         <tr>
             <td style = "color: #00ADB5;font-family: 'Roboto'; width:5px" id = "tablobaslik" >İD</td>
@@ -110,6 +114,10 @@
             $verileriCek = $connection->prepare("select * from haberbilgileri");
             $verileriCek->execute();
             $seri  = 0;
+            
+            $komut = $connection->prepare("SELECT * FROM haberbilgileri");
+            $komut->execute();
+
             //Bu değişken içerisine çekilen tabloyu bir döngü ile b isimli dizi içerisine çekiyoruz.
             while ($b=$verileriCek->fetch(PDO::FETCH_ASSOC)){
 
@@ -133,7 +141,17 @@
                     <td>$surname</td>
                     <td>$time</td>
                 </tr>";
-            }     
+            }
+
+
+            while ($bilgiler = $komut->fetch(PDO::FETCH_ASSOC)) {
+                # code...
+                echo "<tr onmouseover='gettID(".$bilgiler["id"].")'>
+            }
+            
+
+            
+            
     ?>           
     </table>
     </div>

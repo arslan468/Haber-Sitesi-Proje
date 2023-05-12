@@ -14,8 +14,7 @@
         return false;    });
         
 
-        const kalm = document.querySelector("#yazdir");
-        const gettID = (id)=>{kalm.value=id;}
+
         // or attachEvent, depends on browser
         }
     </script>
@@ -112,12 +111,8 @@
             include("zdbbaglanti_haber.php");
             //Bir mySQL sorgusu ile tüm üyeler tablosunu bir değişkene atıyoruz.
             $verileriCek = $connection->prepare("select * from haberbilgileri");
-            $verileriCek->execute();
+            $verileriCek->execute(); 
             $seri  = 0;
-            
-            $komut = $connection->prepare("SELECT * FROM haberbilgileri");
-            $komut->execute();
-
             //Bu değişken içerisine çekilen tabloyu bir döngü ile b isimli dizi içerisine çekiyoruz.
             while ($b=$verileriCek->fetch(PDO::FETCH_ASSOC)){
 
@@ -133,7 +128,7 @@
                 
                     
                 //Tablonun ikinci satırına denk gelen bu alanda gerekli yerlere bu değişkenleri giriyoruz. 
-                echo "<tr id = $seri >
+                echo "<tr id = $seri onmouseover='gettID(".$b["id"].")' >
                     <td>$id</td>
                     <td>$haberBaslig</td>
                     <td>$haber</td>
@@ -142,18 +137,11 @@
                     <td>$time</td>
                 </tr>";
             }
-
-
-            while ($bilgiler = $komut->fetch(PDO::FETCH_ASSOC)) {
-                # code...
-                echo "<tr onmouseover='gettID(".$bilgiler["id"].")'>
-            }
-            
-
-            
-            
     ?>           
     </table>
     </div>
+    <script src="deneme.js"></script>
+
 </body>
 </html>
+

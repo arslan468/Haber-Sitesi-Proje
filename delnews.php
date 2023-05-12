@@ -12,13 +12,8 @@
         $('a.top').click(function(){
         $(document.body).animate({scrollTop : 0},8000);
         return false;    });
+        
 
-        var tableRows = document.getElementsByTagName('tr');
-
-        for (var i = 0; i < tableRows.length; i += 1) {
-        tableRows[i].addEventListener('mouseover', function(e){
-        array("merhaba")
-        }); 
         // or attachEvent, depends on browser
         }
     </script>
@@ -39,6 +34,13 @@
             background-color:#676e79 ;
             transition: 0.5s;
         }
+
+        /* tr:hover{color:red;} */
+
+        table.tblIncidentList tr:hover td,
+        table.tblIncidentList tr:hover th {
+        background-color: #e9e9e9 !important;
+}
         
         @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto:wght@100;500&family=Source+Sans+Pro:wght@700&display=swap');
     </style>
@@ -107,8 +109,11 @@
             //Bir mySQL sorgusu ile tüm üyeler tablosunu bir değişkene atıyoruz.
             $verileriCek = $connection->prepare("select * from haberbilgileri");
             $verileriCek->execute();
+            $seri  = 0;
             //Bu değişken içerisine çekilen tabloyu bir döngü ile b isimli dizi içerisine çekiyoruz.
             while ($b=$verileriCek->fetch(PDO::FETCH_ASSOC)){
+
+                $seri += 1;
                     
                 //Dizi içerisine giriyoruz ve Tablo içerisinden çekilecek olan tüm sütunları tek tek değişken ierisine atıyoruz.
                 $id = $b['id'];
@@ -120,7 +125,7 @@
                 
                     
                 //Tablonun ikinci satırına denk gelen bu alanda gerekli yerlere bu değişkenleri giriyoruz. 
-                echo "<tr>
+                echo "<tr id = $seri >
                     <td>$id</td>
                     <td>$haberBaslig</td>
                     <td>$haber</td>

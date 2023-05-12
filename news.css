@@ -18,6 +18,18 @@ aside {
     left: 0px;
     top: 0px;
   }
+
+  .yukaricik
+  {
+    transition: 0.9s;
+    position: fixed;
+    width: 60px;
+    height: 50px;
+    background-color: red;
+    top: 94%;
+    left: 94%;
+    border-radius: 30px;
+  }
   
   aside a {
     font-size: 22px;

@@ -8,7 +8,6 @@
     <title>Kullanıcı Kayıt</title>
 </head>
 <body>
-
     <div class="anaforum">
         <form name = "goforum" id = "goforum" action="confirmation.php" method = "POST">
             <input style = "margin-top:35px" required="required" type="text" name ="name" id = "name" placeholder = " Ad">
@@ -17,6 +16,5 @@
             <input type="submit" name = "btngonder" id ="btnsignin" value = "Yeni Kullanıcı Oluştur" class ="btnstyle">
         </form>
     </div>
-    
 </body>
 </html>

@@ -18,9 +18,74 @@
             font-family: 'Roboto';
             margin: 0;
         }
+
+        .resim
+        {
+            border-radius:25px;
+            width: 500px;
+            height: 345px;
+        }
+
+        .pozisyon
+        {
+            margin: right;
+            padding-top: 10px;
+            padding-left:200px;
+        }
+
+        .border
+        {
+            border-radius:25px;
+            border-color:#00ADB5;
+        }
+
+        .lookup 
+        {
+            position: fixed;
+            border-radius: 35px;
+            width: 50px;
+            height: 50px;
+            top: 89%;
+            left: 94%;
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .lookup:hover
+        {
+            background-color:#676e79 ;
+            transition: 0.5s;
+        }
+
+        .spotify
+        {
+            position: fixed;
+            width:250px;
+            height:900px;
+            top:12%;
+            left:86%;
+            
+        }
+
     </style>
+    <script>
+        $('a.top').click(function(){
+        $(document.body).animate({scrollTop : 0},8000);
+        return false;    });
+        console.log("Haber");
+    </script>
 </head>
 <body>
+
+<div class="lookup">
+        <a class="top" href="#">
+            <img style="width: 50px; height: 50px;" src="up.png" alt="">
+        </a>
+</div>
+
+<div class="spotify">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXoHqNlfcLJb?utm_source=generator&theme=0" width="100%" height="680" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
 
 <aside id = "deneme">
         <p style="font-size: 25px; color:#EEEEEE;"> Menü </p>
@@ -57,9 +122,81 @@
             else{
             }
         ?>  
-    </aside>
+</aside>
 
+<div class=" container py-3 mt-5">
+  <!-- Card Start -->
+  
+        <?php
+            include("zdbbaglanti_haber.php");
+            $habercek = $connection->prepare("SELECT * FROM haberbilgileri");
+            $habercek->execute();
+
+            while ($data=$habercek->fetch(PDO::FETCH_ASSOC))
+            {
+                $id =  $data['id'];
+                $haberbaslig = substr($data['haberBasligi'],0,200); 
+                $haber = substr($data['haber'],0,900);
+                $name = $data['editorname'];
+                $surname = $data['editorsurname'];
+                $time = $data['time'];
+                $img = $data['link'];
+
+                echo 
+                "
+                <div class='border mt-5 p-5 bg-dark text-light card'>
+                    <div class='row'>
+                        <div class='col-md-7 px-3'>
+                            <div class='card-block px-6'>
+                                <h4 class='text-info card-title'> $haberbaslig</h4>
+                                <p class='card-text'>$haber</p><br>
+                                <a href='#' class='btn btn-secondary'>Haberi Oku</a>
+                            </div>
+                        </div>
+
+                        <div class='col-md-5'>
+                            <div class='carousel-item active'>
+                                <img class='d-block resim' src='$img'>
+                                <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - </small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                ";
+            }
+
+
+        
+        ?>
+
+
+
+    </div>
+  </div>
 
 
 </body>
 </html>
+
+
+<!-- <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+          <h4 class="text-info card-title">Horizontal Card with Carousel - Bootstrap 4 </h4>
+          <p class="card-text">
+            The Carousel code can be replaced with an img src, no problem. The added CSS brings shadow to the card and some adjustments to the prev/next buttons and the indicators is rounded now. As in Bootstrap 3
+          </p>
+          <p class="card-text">Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images</p>
+          <br>
+          
+          <a href="#" class="btn btn-secondary">Haberi Oku</a>
+
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="carousel-item active">
+              
+              <p class="pozisyon  card-text"><small class="text-secondary">Mehmet Alp Arslan - 2023-05-16 21:04:53 - </small></p>
+        </div> -->

@@ -1,0 +1,23 @@
+.form
+{
+    position: fixed;
+    width: 350px;
+    height: 100%;
+    right: 1cm;
+    top: 30%;
+}
+
+.inut
+{
+    width: 90%;
+    border-color: linear-gradient(0deg ,#222831, #00ADB5 ,#222831);
+    border-radius: 10px;
+    border-color: #00ADB5;
+    font-size: 20px;
+    font-family: 'Roboto';
+    margin: auto;
+    margin-left: 25px;
+    margin-top: 25px;
+    
+}
+

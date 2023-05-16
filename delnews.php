@@ -12,13 +12,9 @@
         $('a.top').click(function(){
         $(document.body).animate({scrollTop : 0},8000);
         return false;    });
+        
 
-        var tableRows = document.getElementsByTagName('tr');
 
-        for (var i = 0; i < tableRows.length; i += 1) {
-        tableRows[i].addEventListener('mouseover', function(e){
-        array("merhaba")
-        }); 
         // or attachEvent, depends on browser
         }
     </script>
@@ -39,6 +35,13 @@
             background-color:#676e79 ;
             transition: 0.5s;
         }
+
+        /* tr:hover{color:red;} */
+
+        table.tblIncidentList tr:hover td,
+        table.tblIncidentList tr:hover th {
+        background-color: #e9e9e9 !important;
+}
         
         @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto:wght@100;500&family=Source+Sans+Pro:wght@700&display=swap');
     </style>
@@ -93,6 +96,8 @@
     </aside>
 
     <div class="anaforum1">
+        <input type="text" id="yazdir">
+
         <table class="table table-dark table-striped">
         <tr>
             <td style = "color: #00ADB5;font-family: 'Roboto'; width:5px" id = "tablobaslik" >İD</td>
@@ -106,9 +111,12 @@
             include("zdbbaglanti_haber.php");
             //Bir mySQL sorgusu ile tüm üyeler tablosunu bir değişkene atıyoruz.
             $verileriCek = $connection->prepare("select * from haberbilgileri");
-            $verileriCek->execute();
+            $verileriCek->execute(); 
+            $seri  = 0;
             //Bu değişken içerisine çekilen tabloyu bir döngü ile b isimli dizi içerisine çekiyoruz.
             while ($b=$verileriCek->fetch(PDO::FETCH_ASSOC)){
+
+                $seri += 1;
                     
                 //Dizi içerisine giriyoruz ve Tablo içerisinden çekilecek olan tüm sütunları tek tek değişken ierisine atıyoruz.
                 $id = $b['id'];
@@ -120,7 +128,7 @@
                 
                     
                 //Tablonun ikinci satırına denk gelen bu alanda gerekli yerlere bu değişkenleri giriyoruz. 
-                echo "<tr>
+                echo "<tr id = $seri onmouseover='gettID(".$b["id"].")' >
                     <td>$id</td>
                     <td>$haberBaslig</td>
                     <td>$haber</td>
@@ -128,9 +136,12 @@
                     <td>$surname</td>
                     <td>$time</td>
                 </tr>";
-            }     
+            }
     ?>           
     </table>
     </div>
+    <script src="deneme.js"></script>
+
 </body>
 </html>
+

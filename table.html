@@ -12,12 +12,10 @@
         $('a.top').click(function(){
         $(document.body).animate({scrollTop : 0},800);
         return false;    });
-
+    
         function getid(obj) {
-            var data = document.getElementById(obj.animateId);
-            var elem = document.getElementById("image");
-            var tur = document.getElementsByTagName("tr");
-            console.log(tur);
+            var bilgi = document.getElementById(obj);
+            console.log( bilgi);
         }
     </script>
     <style>
@@ -66,9 +64,9 @@
         .myhover tr:hover
         {
             background-color: coral;
+            
         }
 
-        tr:hover {background-color: coral;}
     </style>
 </head>
 <body>
@@ -80,7 +78,7 @@
     </div>
 
     <div class="anaforum1">
-        <table class="table table-dark table-striped myhover">
+        <table class="myhover">
             <tr id="img" onmouseover="getid(this);">
                 <td>İD</td>
                 <td>Haber Başlığı</td>
@@ -105,6 +103,7 @@
                 <td>$surname</td>
                 <td>$time</td>
             </tr>
+            
             <tr id="4"  onmouseover="getid(this);">
                 <td>$id</td>
                 <td>$haberBaslig</td>
@@ -123,5 +122,8 @@
             </tr>
         </table>
     </div>
+
 </body>
 </html>
+
+

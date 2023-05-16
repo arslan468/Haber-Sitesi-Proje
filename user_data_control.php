@@ -31,11 +31,12 @@
             $ad = trim($_POST['name']);
             $soyad = trim($_POST['surname']);
             $sifre = trim($_POST['password']);
+            $sifrelisifre = md5($sifre);
             $com = $connection->prepare('SELECT * FROM user_data');
             $com->execute();
             while($bilgiler = $com->fetch(PDO::FETCH_ASSOC))
             {
-                if ($bilgiler["user_name"] == $ad && $bilgiler["user_surname"] == $soyad && $bilgiler["user_password"] == $sifre )
+                if ($bilgiler["user_name"] == $ad && $bilgiler["user_surname"] == $soyad && $bilgiler["user_password"] == $sifrelisifre )
                 {
                     $_SESSION["deneme"] = $bilgiler["user_name"];
                     $_SESSION["surnamego"] = $bilgiler["user_surname"];

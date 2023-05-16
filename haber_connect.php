@@ -77,7 +77,7 @@
         if(isset($_POST))
         {
             $hbBaslik = trim($_POST['haber_baslik']);
-            $haber = trim($_POST['haber']);
+            $haber = trim($_POST['h']);
             $link = trim($_POST['img']);
 
             $command = $connection->prepare("INSERT INTO haberbilgileri set haberBasligi = ?, haber = ?, editorname = ?, editorsurname = ?, link = ?");

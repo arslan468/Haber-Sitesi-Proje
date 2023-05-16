@@ -78,37 +78,15 @@
         ?>  
     </aside>
 
-
     <div class="editform">
         <form name = "goforum" id = "goforum" method = "POST" action = "haber_connect.php">
             <input required = "required" style = "margin-top:35px" type="text" name ="haber_baslik" id = "haber_baslik" placeholder = " Haberin Başlığını Giriniz">
-            <textarea class = "trait" required='required' name='h' class = 'inut' type='text' rows='10'></textarea>
+            <textarea class = "trait" required='required' name='h' class = 'inut' type='text' placeholder = " Haberin içeriğini giriniz" rows='10'></textarea>
             <!-- <input  type="text" required = "required" name ="haber" id = "haber" placeholder = " Haberin İçeriğini Giriniz"></input> -->
             <input  type="text" required = "required" name ="img" id = "img" placeholder = "Görsel Linkini Giriniz"></input>
             
             <input type="submit" name = "btngonder" id ="btnsignin" value = "Haberi Yayınla" class ="btnstyle">
         </form>
-        <!-- <div class="mb-3 habergiris">
-        <textarea class="form-control" placeholder = " Haberin İçeriğini Giriniz" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div> -->
     </div>
-
-
-    
-
-    
 </body>
 </html>
-
-<?php
-        // session_start();
-        // if (isset($_SESSION["deneme"])) {
-
-        //     $upperad=$_SESSION["deneme"];
-
-        //     echo "<h2 style=margin-left:40px;>Kullanıcı:  ".ucfirst($upperad)."</h2>";
-        // }
-        // else{
-        //     echo "<p>YOK</p>";
-        // }
-?> 

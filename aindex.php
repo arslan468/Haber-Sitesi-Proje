@@ -24,13 +24,23 @@
             border-radius:25px;
             width: 500px;
             height: 345px;
+            transition: 0.5s;
+        }
+
+        .resim:hover
+        {
+            border-radius:25px;
+            width: 500px;
+            height: 345px;
+            transition: 0.5s;
+            opacity: 0.5;
         }
 
         .pozisyon
         {
             margin: right;
             padding-top: 10px;
-            padding-left:200px;
+            padding-left:180px;
         }
 
         .border
@@ -141,6 +151,7 @@
                 $surname = $data['editorsurname'];
                 $time = $data['time'];
                 $img = $data['link'];
+                $views = $data['views'];
 
                 echo 
                 "
@@ -150,34 +161,23 @@
                             <div class='card-block px-6'>
                                 <h4 class='text-info card-title'> $haberbaslig</h4>
                                 <p class='card-text'>$haber</p><br>
-                                <a href='#' class='btn btn-secondary'>Haberi Oku</a>
+                                <a href='detay.php?id=".$id."' class='btn btn-secondary'>Haberi Oku</a>
                             </div>
                         </div>
 
                         <div class='col-md-5'>
                             <div class='carousel-item active'>
-                                <img class='d-block resim' src='$img'>
+                                <a href='detay.php?id=".$id."'> <img class='d-block resim' src='$img'></a>
                                 <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - </small></p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                
                 ";
             }
-
-
-        
         ?>
-
-
-
     </div>
   </div>
-
-
 </body>
 </html>
 
@@ -190,6 +190,7 @@
           </p>
           <p class="card-text">Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images</p>
           <br>
+          ekleme
           
           <a href="#" class="btn btn-secondary">Haberi Oku</a>
 

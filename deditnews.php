@@ -104,6 +104,7 @@
     <div class="editform">
         <form id="goform" method='POST'>
             <?php
+                ob_start();
                 include("zdbbaglanti_haber.php");
                 $degisken =  @$_GET["id"];
                 $verileriCek = $connection->prepare("select * from haberbilgileri WHERE id=?");
@@ -135,7 +136,8 @@
                 $query = $connection->prepare("UPDATE haberbilgileri SET haberBasligi=?, 
                     haber=?, editorname=?, editorsurname=?, time=?, link=? WHERE id=?");
                 $query->execute(array($haberb,$haber,$editorad,$editorsoyad,$zaman,$img, $degisken));
-                header("Location: detay.php");
+                ob_end_clean();
+                header("Location: delnews.php");
             }
             ?>
     </div>

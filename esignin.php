@@ -14,7 +14,11 @@
             <input type="text" required="required" name ="name" id = "name" placeholder = " Ad" style = "margin-top:35px" >
             <input type="text" required="required" name ="surname" id = "surname" placeholder = " Soyad">
             <input type="password" name ="password" required="required" id = "password" placeholder = " Şifre">
-            <input type="submit" name = "btngonder" id ="btnsignin" value = "Giriş" class ="btnstyle">
+
+            <input  type="submit" name = "btngonder" id ="btnsignin" value = "Giriş" class ="btnstyle">
+        </form> 
+        <form action="guest.php">
+            <input style = "color:#3fff38;" type="submit" name = "btnNewuser" id = "btnNewuser" value = "Misafir Girişi Yap" class = "btnstyle">
         </form>
         <form action="esignup.php">
             <input type="submit" name = "btnNewuser" id = "btnNewuser" value = "Hesap Oluştur" class = "btnstyle">

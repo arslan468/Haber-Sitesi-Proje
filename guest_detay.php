@@ -150,7 +150,7 @@
 </div>
 
 <div id = "geridon">
-    <a href="aindex.php">Geri Dön</a>
+    <a href="guest.php">Geri Dön</a>
 </div>
 
 

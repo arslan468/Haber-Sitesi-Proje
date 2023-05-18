@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="news.css">
     <link rel="stylesheet" href="signin.css">
     <link rel="stylesheet" href="position.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto:wght@100;500&family=Source+Sans+Pro:wght@700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto:wght@100;500&family=Source+Sans+Pro:wght@700&display=swap');
         body
         {
             background-color: #222831;
@@ -22,13 +21,20 @@
 
         .resim
         {
-            display: flex;
-            margin: auto;
             border-radius:25px;
-            width: 800px;
-            height: 445px;
+            width: 500px;
+            height: 345px;
+            transition: 0.5s;
         }
 
+        .resim:hover
+        {
+            border-radius:25px;
+            width: 500px;
+            height: 345px;
+            transition: 0.5s;
+            opacity: 0.5;
+        }
 
         .pozisyon
         {
@@ -67,40 +73,8 @@
             width:250px;
             height:900px;
             top:12%;
-            left:3%;
+            left:86%;
             z-index: -1;
-        }
-
-        #geridon
-        {
-            position: fixed;
-            top:0px;
-            font-family: 'Roboto';
-            color: #393E46;
-            background-color: #00ADB5;
-            width: 200px;
-            height: 70px;
-            border-radius: 0px 30px 30px 0px;
-        }
-
-        #geridon a 
-        {
-            font-size: 22px;
-            color: #393E46;
-            display: block;
-            padding: 15px;
-            font-family: 'Roboto';
-            padding-left: 30px;
-            text-decoration: none;
-            transition: 1s;
-            -webkit-tap-highlight-color:transparent;
-        }
-
-        #geridon a:hover
-        {
-            padding: 30px;
-            font-size: 30px;
-            transition: 2s;
         }
 
         .orta
@@ -129,6 +103,7 @@
             padding-top: 10px;
             
         }
+
     </style>
     <script>
         $('a.top').click(function(){
@@ -149,66 +124,86 @@
     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXoHqNlfcLJb?utm_source=generator&theme=0" width="100%" height="680" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
 
-<div id = "geridon">
-    <a href="aindex.php">Geri Dön</a>
-</div>
+<!-- <aside id = "deneme">
+        <p style="font-size: 25px; color:#EEEEEE;"> Menü </p>
+        <a href="aindex.php">
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            Anasayfa
+        </a>
+        <a href="cnew_haber.php">
+            <i class="fa fa-laptop" aria-hidden="true"></i>
+            Yeni Haber Ekle
+        </a>
+        <a href="delnews.php">
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            Haber Güncelle/Sil
+        </a>
+        <a class="exit" href="esignin.php">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            Çıkış
+        </a>
+    
+    
+        <?php
+            session_start();
+            if (isset($_SESSION["deneme"])) {
+    
+                $upperad=$_SESSION["deneme"];
+    
+                echo "<h4 style=margin-left:30px;>Admin:  ".ucfirst($upperad)."</h4>";
+            }
+            else{
+            }
+        ?>  
+</aside> -->
 
-
-
-
-
-<div class=" container">
+<div class=" container py-3 mt-5">
+    <h1 id = "baslik">
+            Günün En Çok Okunan Haberleri
+    </h1>
   <!-- Card Start -->
   
         <?php
-            ob_start();
             include("zdbbaglanti_haber.php");
-            $haberid = @$_GET["id"];
-            $habercek = $connection->prepare("SELECT * FROM haberbilgileri WHERE id=?");
-            $habercek->execute(array($haberid));
+            $habercek = $connection->prepare("SELECT * FROM haberbilgileri order by views desc");
+            $habercek->execute();
 
-            while ($cekim = $habercek->fetch(PDO::FETCH_ASSOC))
+            while ($data=$habercek->fetch(PDO::FETCH_ASSOC))
             {
+                $id =  $data['id'];
+                $haberbaslig = substr($data['haberBasligi'],0,200); 
+                $haber = substr($data['haber'],0,900);
+                $name = $data['editorname'];
+                $surname = $data['editorsurname'];
+                $time = $data['time'];
+                $img = $data['link'];
+                $views = $data['views'];
 
-                $id          = $cekim['id'];
-                $haberbaslig = $cekim['haberBasligi']; 
-                $haber       = $cekim['haber'];
-                $name        = $cekim['editorname'];
-                $surname     = $cekim['editorsurname'];
-                $time        = $cekim['time'];
-                $img         = $cekim['link'];
-                $views       = $cekim['views'];
-                
-                $views+=1;
+                echo 
+                "
+                <div class='border mt-5 p-5 bg-dark text-light card'>
+                    <div class='row'>
+                        <div class='col-md-7 px-3'>
+                            <div class='card-block px-6'>
+                                <h4 class='text-info card-title'> $haberbaslig</h4>
+                                <p class='card-text'>$haber</p><br>
+                                <a href='guest_detay.php?id=".$id."' class='btn btn-secondary'>Haberi Oku</a>
+                            </div>
+                        </div>
 
-                echo "
-                    <div class='row mt-5'>
-                        <div class='col-md-12 orta'>
-                            <h1 class='text-info mx-auto p-2'>
-                            $haberbaslig
-                            </h1>
+                        <div class='col-md-5'>
+                            <div class='carousel-item active'>
+                                <a href='guest_detay.php?id=".$id."'> <img class='d-block resim' src='$img'></a>
+                                <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - Görüntülenme $views </small></p>
+                            </div>
                         </div>
-                        <div class='col-md-12'>
-                            <img class='border border-info img-fluid resim' src='$img'> 
-                        </div>
-                        <div class='col-md-3'></div>
-                        <div class='col-md-6 mt-5 mb-5'>
-                        <h3 id = 'icerik' class='text-light'>
-                                  &nbsp;$haber
-                        </h3>
-                        </div> 
-                        <div class='col-md-3'></div>
                     </div>
-
+                </div>
                 ";
-                $goruntu = $connection->prepare("UPDATE haberbilgileri SET views=? WHERE id=$id");
-                $goruntu->execute(array($views));
             }
         ?>
     </div>
   </div>
-
-
 <footer class="iletisim">
     <div class="container">
         <h1 id = "baslik">
@@ -245,9 +240,9 @@
         </div>
     </div>
 </footer>
+
 </body>
 </html>
-
 
 <?php
     if(isset($_POST["btnUser"]))
@@ -269,24 +264,22 @@
         }
     }
 ?>
+<!-- <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+          <h4 class="text-info card-title">Horizontal Card with Carousel - Bootstrap 4 </h4>
+          <p class="card-text">
+            The Carousel code can be replaced with an img src, no problem. The added CSS brings shadow to the card and some adjustments to the prev/next buttons and the indicators is rounded now. As in Bootstrap 3
+          </p>
+          <p class="card-text">Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images Made for usage, commonly searched for. Fork, like and use it. Just move the carousel div above the col containing the text for left alignment of images</p>
+          <br>
+          ekleme
+          
+          <a href="#" class="btn btn-secondary">Haberi Oku</a>
 
-
-
-<!-- <div class='border mt-5 p-5 bg-dark text-light card'>
-                    <div class='row'>
-                        <div class='col-md-7 px-3'>
-                            <div class='card-block px-6'>
-                                <h4 class='text-info card-title'> $haberbaslig</h4>
-                                <p class='card-text'>$haber</p><br>
-                                <a href='detay.php' id = onmouseover='gettID(".$data["id"].")' class='btn btn-secondary'>Haberi Oku</a>
-                            </div>
-                        </div>
-
-                        <div class='col-md-5'>
-                            <div class='carousel-item active'>
-                                <a href='detay.php' id = onmouseover='gettID(".$data["id"].")''> <img class='d-block resim' src='$img'></a>
-                                <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - </small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="carousel-item active">
+              
+              <p class="pozisyon  card-text"><small class="text-secondary">Mehmet Alp Arslan - 2023-05-16 21:04:53 - </small></p>
+        </div> -->

@@ -69,6 +69,7 @@
             top:12%;
             left:3%;
             z-index: -1;
+
         }
 
         #geridon
@@ -103,24 +104,12 @@
             transition: 2s;
         }
 
-        .orta
-        {
-            margin-left: 160px;
-        }
-
-        #icerik
-        {
-            font-family: 'Cabin', sans-serif;
-            font-family: 'Roboto', sans-serif;
-            font-family: 'Source Sans Pro', sans-serif;
-        }
-
         .iletisim
         {
             width: 100%;
             height: 600px;
             background-color: #393E46;
-            
+            bottom: 0px;   
         }
 
         #baslik
@@ -128,6 +117,7 @@
             text-align: center;
             color: white;
         }
+
     </style>
     <script>
         $('a.top').click(function(){
@@ -138,7 +128,7 @@
 </head>
 <body>
 
-<div class="lookup">
+<!-- <div class="lookup">
         <a class="top" href="#">
             <img style="width: 50px; height: 50px;" src="up.png" alt="">
         </a>
@@ -150,74 +140,44 @@
 
 <div id = "geridon">
     <a href="aindex.php">Geri Dön</a>
-</div>
+</div> -->
 
 
 
-
-
-<div class=" container">
-  <!-- Card Start -->
-  
-        <?php
-            ob_start();
-            include("zdbbaglanti_haber.php");
-            $haberid = @$_GET["id"];
-            $habercek = $connection->prepare("SELECT * FROM haberbilgileri WHERE id=?");
-            $habercek->execute(array($haberid));
-
-            while ($cekim = $habercek->fetch(PDO::FETCH_ASSOC))
-            {
-
-                $id          = $cekim['id'];
-                $haberbaslig = $cekim['haberBasligi']; 
-                $haber       = $cekim['haber'];
-                $name        = $cekim['editorname'];
-                $surname     = $cekim['editorsurname'];
-                $time        = $cekim['time'];
-                $img         = $cekim['link'];
-                $views       = $cekim['views'];
-                
-                $views+=1;
-
-                echo "
-                    <div class='row mt-5'>
-                        <div class='col-md-12 orta'>
-                            <h1 class='text-info mx-auto p-2'>
-                            $haberbaslig
-                            </h1>
-                        </div>
-                        <div class='col-md-12'>
-                            <img class='border border-info img-fluid resim' src='$img'> 
-                        </div>
-                        <div class='col-md-3'></div>
-                        <div class='col-md-6 mt-5 mb-5'>
-                        <h3 id = 'icerik' class='text-light'>
-                                  &nbsp;$haber
-                        </h3>
-                        </div> 
-                        <div class='col-md-3'></div>
-                    </div>
-
-                ";
-                $goruntu = $connection->prepare("UPDATE haberbilgileri SET views=? WHERE id=$id");
-                $goruntu->execute(array($views));
-            }
-        ?>
-    </div>
-  </div>
-  <footer class="iletisim">
+<footer class="iletisim">
     <div class="container">
         <h1 id = "baslik">
             İletişim Formu
         </h1>
         <div class="row">
-            <div class="col-md-6">
-                <form action="">
-                    
-                </form>
+            <div class="col-md-12">
+                <form>
+                    <div class="form-outline mb-4">
+                      <input placeholder="Ad-Soyad" type="text" id="form4Example1" class="form-control" />
+                      <label class="form-label text-light" for="form4Example1">Ad-Soyad</label>
+                    </div>
+                  
+                    <div class="form-outline mb-4">
+                      <input placeholder="Email" type="email" id="form4Example2" class="form-control" />
+                      <label class="form-label text-light" for="form4Example2">Email</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input placeholder="Konu" type="text" id="form4Example1" class="form-control" />
+                        <label class="form-label text-light" for="form4Example1">Konu</label>
+                      </div>
+                  
+
+                    <div class="form-outline mb-4">
+                      <textarea placeholder="Mesajınız" class="form-control" id="form4Example3" rows="4"></textarea>
+                      <label class="form-label text-light" for="form4Example3">Mesajınız</label>
+                    </div>
+                  
+                    <div class="form-check d-flex justify-content-center mb-4">
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+                    </div>
+                  </form>
             </div>
-            <div class="col-md-6"></div>
         </div>
 
 

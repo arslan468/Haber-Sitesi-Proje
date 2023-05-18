@@ -161,6 +161,8 @@
                 $time        = $cekim['time'];
                 $img         = $cekim['link'];
                 $views       = $cekim['views'];
+                
+                $views+=1;
 
                 echo "
                     <div class='row mt-5'>
@@ -182,6 +184,8 @@
                     </div>
 
                 ";
+                $goruntu = $connection->prepare("UPDATE haberbilgileri SET views=? WHERE id=$id");
+                $goruntu->execute(array($views));
             }
         ?>
     </div>

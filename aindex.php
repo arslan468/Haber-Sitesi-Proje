@@ -139,7 +139,7 @@
   
         <?php
             include("zdbbaglanti_haber.php");
-            $habercek = $connection->prepare("SELECT * FROM haberbilgileri");
+            $habercek = $connection->prepare("SELECT * FROM haberbilgileri order by views desc");
             $habercek->execute();
 
             while ($data=$habercek->fetch(PDO::FETCH_ASSOC))

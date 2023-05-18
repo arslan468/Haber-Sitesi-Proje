@@ -150,11 +150,11 @@
 
 <div class="anaforum">
     <h1 class ="text-light m-3 mt-5 p-3" >Bu haberi silmek istediğinize eminmisiniz <b style = "color:red;">!!!</h1>
-    <form>
-        <input style="color:red;" type="button" class="btnstyle" value = "SİL" > 
+    <form    method = "POST" action = "delnews.php">
+            <input style="color:green;" type="submit" name = "btngonder" id ="btnsignin" value = "İPTAL" class ="btnstyle">
     </form>
-    <form action="delnews.php">
-        <input style="color:green;" type="button" class="btnstyle" value = "İPTAL" > 
+    <form     method = "POST">
+            <input style="color:red;" type="submit" name = "btnsil" id ="btnsignin" value = "SİL" class ="btnstyle">
     </form>
 </div>
 
@@ -217,6 +217,13 @@
 
 
 <?php
+    if(isset($_POST["btnsil"]))
+    {
+        $sql = "DELETE FROM haberbilgileri WHERE id=$haberid";
+        header("Refresh: 1; url=http://localhost/Haber%20Sitesi%20Proje/esignin.php");
+    }
+?>
+<?php
     if(isset($_POST["btnUser"]))
     {
         include("giris_connect.php");
@@ -228,7 +235,7 @@
             echo
             "<script>
                 alert('Mesajınız Ulaştı En Kısa Sürede Size Dönüş Yapacağız');
-            </script>";
+            </scri>";
         }
         else
         {

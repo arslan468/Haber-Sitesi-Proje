@@ -145,21 +145,25 @@
         </a>
 </div>
 
-<div class="spotify">
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXoHqNlfcLJb?utm_source=generator&theme=0" width="100%" height="680" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+
+
+<div class="anaforum">
+    <h1 class ="text-light m-3 mt-5 p-3" >Bu haberi silmek istediğinize eminmisiniz <b style = "color:red;">!!!</h1>
+    <form>
+        <input style="color:red;" type="button" class="btnstyle" value = "SİL" > 
+    </form>
+    <form action="delnews.php">
+        <input style="color:green;" type="button" class="btnstyle" value = "İPTAL" > 
+    </form>
 </div>
 
-<div id = "geridon">
-    <a href="aindex.php">Geri Dön</a>
-</div>
 
 
 
 
 
-<div class=" container">
-  <!-- Card Start -->
-  
+<div class=" container">  
         <?php
             ob_start();
             include("zdbbaglanti_haber.php");
@@ -208,43 +212,6 @@
     </div>
   </div>
 
-
-  <footer class="iletisim">
-    <div class="container">
-        <h1 id = "baslik">
-            İletişim Formu
-        </h1>
-        <div class="row">
-            <div class="col-md-12">
-                <form method = "POST">
-                    <div class="form-outline mb-4">
-                      <input placeholder="Ad-Soyad" name = "ad" type="text" id="form4Example1" class="form-control" />
-                      <label class="form-label text-light" for="form4Example1">Ad-Soyad</label>
-                    </div>
-                  
-                    <div class="form-outline mb-4">
-                      <input placeholder="Email" type="email" name ="mail" id="form4Example2" class="form-control" />
-                      <label class="form-label text-light" for="form4Example2">Email</label>
-                    </div>
-
-                    <div class="form-outline mb-4">
-                        <input placeholder="Konu" type="text" name = "konu" id="form4Example1" class="form-control" />
-                        <label class="form-label text-light" for="form4Example1">Konu</label>
-                    </div>
-                  
-                    <div class="form-outline mb-4">
-                      <textarea placeholder="Mesajınız" name="mesaj" class="form-control" id="form4Example3" rows="2"></textarea>
-                      <label class="form-label text-light" for="form4Example3">Mesajınız</label>
-                    </div>
-                  
-                    <div class="form-check d-flex justify-content-center mb-4">
-                        <input type="submit" name = "btnUser" id = "btnNewuser" value = "Gönder" class = "btnstyle">
-                    </div>
-                  </form>
-            </div>
-        </div>
-    </div>
-</footer>
 </body>
 </html>
 
@@ -269,24 +236,3 @@
         }
     }
 ?>
-
-
-
-<!-- <div class='border mt-5 p-5 bg-dark text-light card'>
-                    <div class='row'>
-                        <div class='col-md-7 px-3'>
-                            <div class='card-block px-6'>
-                                <h4 class='text-info card-title'> $haberbaslig</h4>
-                                <p class='card-text'>$haber</p><br>
-                                <a href='detay.php' id = onmouseover='gettID(".$data["id"].")' class='btn btn-secondary'>Haberi Oku</a>
-                            </div>
-                        </div>
-
-                        <div class='col-md-5'>
-                            <div class='carousel-item active'>
-                                <a href='detay.php' id = onmouseover='gettID(".$data["id"].")''> <img class='d-block resim' src='$img'></a>
-                                <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - </small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->

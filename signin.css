@@ -106,6 +106,38 @@ body, .deneme
     margin-top: 20px;
 }
 
+#btnstyle
+{
+    width: 230px;
+    font-size: 20px;
+    border-color: #00ADB5;
+    border-radius: 15px;
+    background-color:#393E46;
+    color: #eeeeee;
+    font-family: 'Roboto';
+    margin: auto;
+    transition: 0.4s;
+    display: block;
+    line-height: 26px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+#btnstyle:hover
+{
+    width: 225px;
+    font-size: 20px;
+    border-radius: 15px;
+    background-color:#191b1f;
+    color: #68f19d;
+    margin: auto;
+    transition: 0.4s;
+    display: block;
+    margin-top: 20px;
+}
+
 .error
 {
     color: #00ADB5;

@@ -122,8 +122,6 @@
         ?>  
     </aside>
 
-
-
     <div class="anaforum1">
         <table class="table table-dark table-striped">
         <tr>
@@ -159,7 +157,6 @@
                 $surname = $b['editorsurname'];
                 $time = $b['time'];
                 
-
                     
                 //Tablonun ikinci satırına denk gelen bu alanda gerekli yerlere bu değişkenleri giriyoruz. 
                 echo "<tr id = $seri onmouseover='gettID(".$b["id"].")' >
@@ -170,17 +167,10 @@
                     <td id = d5>$surname</td>
                     <td id = d6>$time</td>
                     <td id = d6><a class = 'guncelle' href='deditnews.php?id=".$id."'>Güncelle</a></td>
-                    <td id = d6><a class = 'sil' href='detay.php?id=".$id."'>Sil</a></td>
+                    <td id = d6><a class = 'sil' href='delete.php?id=".$id."'>Sil</a></td>
                 </tr>";
-                
             }
-            
-            
-
     ?>    
-
-    
-
     </table>
     </div>
     <script src="deneme.js"></script>

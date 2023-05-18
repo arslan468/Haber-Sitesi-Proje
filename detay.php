@@ -105,7 +105,7 @@
 
         .orta
         {
-            margin-left: 160px;
+            margin-left: 180px;
         }
 
         #icerik
@@ -120,13 +120,14 @@
             width: 100%;
             height: 600px;
             background-color: #393E46;
-            
         }
 
         #baslik
         {
             text-align: center;
             color: white;
+            padding-top: 10px;
+            
         }
     </style>
     <script>
@@ -206,26 +207,51 @@
         ?>
     </div>
   </div>
+
+
   <footer class="iletisim">
     <div class="container">
         <h1 id = "baslik">
             İletişim Formu
         </h1>
         <div class="row">
-            <div class="col-md-6">
-                <form action="">
-                    
-                </form>
+            <div class="col-md-12">
+                <form action= "communication.php" method = "POST">
+                    <div class="form-outline mb-4">
+                      <input placeholder="Ad-Soyad" name = "ad" type="text" id="form4Example1" class="form-control" />
+                      <label class="form-label text-light" for="form4Example1">Ad-Soyad</label>
+                    </div>
+                  
+                    <div class="form-outline mb-4">
+                      <input placeholder="Email" type="email" name ="mail" id="form4Example2" class="form-control" />
+                      <label class="form-label text-light" for="form4Example2">Email</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input placeholder="Konu" type="text" name = "konu" id="form4Example1" class="form-control" />
+                        <label class="form-label text-light" for="form4Example1">Konu</label>
+                    </div>
+                  
+                    <div class="form-outline mb-4">
+                      <textarea placeholder="Mesajınız" name="mesaj" class="form-control" id="form4Example3" rows="2"></textarea>
+                      <label class="form-label text-light" for="form4Example3">Mesajınız</label>
+                    </div>
+                  
+                    <div class="form-check d-flex justify-content-center mb-4">
+                        <input type="submit" name = "btnNewuser" id = "btnNewuser" value = "Gönder" class = "btnstyle">
+                    </div>
+                  </form>
             </div>
-            <div class="col-md-6"></div>
         </div>
-
-
-
     </div>
 </footer>
 </body>
 </html>
+
+
+<?php
+
+?>
 
 
 

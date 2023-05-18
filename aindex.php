@@ -40,7 +40,7 @@
         {
             margin: right;
             padding-top: 10px;
-            padding-left:160px;
+            padding-left:130px;
         }
 
         .border
@@ -164,7 +164,7 @@
                         <div class='col-md-5'>
                             <div class='carousel-item active'>
                                 <a href='detay.php?id=".$id."'> <img class='d-block resim' src='$img'></a>
-                                <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - $views </small></p>
+                                <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - Görüntülenme $views </small></p>
                             </div>
                         </div>
                     </div>

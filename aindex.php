@@ -40,7 +40,7 @@
         {
             margin: right;
             padding-top: 10px;
-            padding-left:180px;
+            padding-left:160px;
         }
 
         .border
@@ -103,10 +103,6 @@
             <i class="fa fa-user-o" aria-hidden="true"></i>
             Anasayfa
         </a>
-        <a href="bmynews.php">
-            <i class="fa fa-laptop" aria-hidden="true"></i>
-            Haberlerim
-        </a>
         <a href="cnew_haber.php">
             <i class="fa fa-laptop" aria-hidden="true"></i>
             Yeni Haber Ekle
@@ -168,7 +164,7 @@
                         <div class='col-md-5'>
                             <div class='carousel-item active'>
                                 <a href='detay.php?id=".$id."'> <img class='d-block resim' src='$img'></a>
-                                <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - </small></p>
+                                <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - $views </small></p>
                             </div>
                         </div>
                     </div>

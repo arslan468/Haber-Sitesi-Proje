@@ -47,10 +47,6 @@
             <i class="fa fa-user-o" aria-hidden="true"></i>
             Anasayfa
         </a>
-        <a href="bmynews.php">
-            <i class="fa fa-laptop" aria-hidden="true"></i>
-            Haberlerim
-        </a>
         <a href="cnew_haber.php">
             <i class="fa fa-laptop" aria-hidden="true"></i>
             Yeni Haber Ekle

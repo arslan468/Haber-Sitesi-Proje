@@ -185,7 +185,7 @@
                 $haberBaslig = substr($b['guestName'],0,60);
                 $haber = substr($b['guestGmail'],0,60); 
                 $name = $b['subject'];
-                $surname = $b['message'];
+                $surname = substr($b['message'],0,30);
                 $time = $b['time'];
                 
                     

@@ -150,14 +150,13 @@ ob_start();
 
 
 
-<div class="transition-all m-auto mt-10 w-1/2 hover:bg-slate-800 rounded-full">
+<div class="transition-all m-auto mt-10 w-1/2  rounded-full">
     <h1 class ="text-3xl text-zinc-300 text-center" >Bu haberi silmek istediğinize eminmisiniz <b style = "color:red;">!!!</h1>
-    <form    method = "POST" class ="text-center mt-2" action = "delnews.php">
+    <form    method = "POST" class ="hover:bg-slate-800 rounded-full  text-center mt-2" action = "delnews.php">
             <input class= "text-center hover:text-4xl transition-all text-green-500 ml-2 text-2xl " type="submit" name = "btngonder"  value = "İPTAL">
     </form>
-    <form method = "POST" class= "text-center mt-2 ">
+    <form method = "POST" class= "hover:bg-slate-800 rounded-full text-center mt-2 ">
         <button  type="submit" class = " hover:text-4xl transition-all text-3xl" name="btnSil">Sil</button>
-            <!-- <input style="color:red;" type="submit" name = "btnsil" id ="btnsignin" value = "SİL" class ="btnstyle"> -->
     </form>
 </div>
 
@@ -196,7 +195,7 @@ ob_start();
                             </h1>
                         </div>
                         <div class='mt-5'>
-                            <img class='border-2 hover:border-x-indigo-500 border-y-indigo-500 border-spacing-32 resim' src='$img'> 
+                            <img class='border-2 hover:border-3 hover:border-x-indigo-500 border-y-indigo-500 border-spacing-32 resim' src='$img'> 
                         </div>
                         <div class='col-md-6 mt-5 mb-5'>
                         <h3 id = 'icerik' class= 'text-violet-300 font-mono text-xl mt-8'>&nbsp;$haber</h3>

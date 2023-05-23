@@ -141,7 +141,7 @@ ob_start();
 </head>
 <body>
 
-<div class="lookup">
+<div class="lookup animate-spin">
         <a class="top" href="#">
             <img style="width: 50px; height: 50px;" src="up.png" alt="">
         </a>
@@ -196,6 +196,7 @@ ob_start();
                         </div>
                         <div class='mt-5'>
                             <img class='border-2 hover:border-3 hover:border-x-indigo-500 border-y-indigo-500 border-spacing-32 resim' src='$img'> 
+                            
                         </div>
                         <div class='col-md-6 mt-5 mb-5'>
                         <h3 id = 'icerik' class= 'text-violet-300 font-mono text-xl mt-8'>&nbsp;$haber</h3>

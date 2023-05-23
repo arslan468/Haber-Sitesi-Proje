@@ -143,7 +143,7 @@ ob_start();
 
 
 
-<div class="lookup">
+<div class="lookup animate-spin">
         <a class="top" href="#">
             <img style="width: 50px; height: 50px;" src="up.png" alt="">
         </a>
@@ -153,9 +153,9 @@ ob_start();
 
 
 <div class="mt-11">
-        <div class="mt-3 hover:bg-gray-900  w-36 m-auto h-18 rounded-full p-3">
+        <div class="mt-3  w-36 m-auto h-18 rounded-full p-3">
             <form method = "POST">
-                <button class="hover:text-green-300 text-green-500 font-extrabold text-4xl text-center" type="submit" name="btnSil">Onayla</button>
+                <button class="hover:text-green-300 text-green-500 font-extrabold animate-bounce text-4xl text-center" type="submit" name="btnSil">Onayla</button>
             </form>
         </div>
         <div class="mt-3 transition-all hover:bg-gray-900 w-32 m-auto h-18 rounded-full p-3">

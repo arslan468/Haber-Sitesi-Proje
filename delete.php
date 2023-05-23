@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+ob_start(); 
+?>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -153,8 +156,9 @@
     <form    method = "POST" action = "delnews.php">
             <input style="color:green;" type="submit" name = "btngonder" id ="btnsignin" value = "İPTAL" class ="btnstyle">
     </form>
-    <form     method = "POST">
-            <input style="color:red;" type="submit" name = "btnsil" id ="btnsignin" value = "SİL" class ="btnstyle">
+    <form method = "POST">
+        <button type="submit" name="btnSil">Sil</button>
+            <!-- <input style="color:red;" type="submit" name = "btnsil" id ="btnsignin" value = "SİL" class ="btnstyle"> -->
     </form>
 </div>
 
@@ -165,7 +169,7 @@
 
 <div class=" container">  
         <?php
-            ob_start();
+            
             include("zdbbaglanti_haber.php");
             $haberid = @$_GET["id"];
             $habercek = $connection->prepare("SELECT * FROM haberbilgileri WHERE id=?");
@@ -217,13 +221,15 @@
 
 
 <?php
-    if(isset($_POST["btnsil"]))
+    if(isset($_POST["btnSil"]))
     {
-        $sql = "DELETE FROM haberbilgileri WHERE id=$haberid";
-        header("Refresh: 1; url=http://localhost/Haber%20Sitesi%20Proje/esignin.php");
+        echo "<h1>girdi</h1>";
+        echo $haberid;
+        $sql = $connection->prepare("DELETE FROM haberbilgileri WHERE id=?"); 
+        $sql->execute(array($haberid));
+        header("Location: delnews.php");
     }
-?>
-<?php
+
     if(isset($_POST["btnUser"]))
     {
         include("giris_connect.php");

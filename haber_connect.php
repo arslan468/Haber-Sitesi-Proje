@@ -92,6 +92,7 @@
                     </div>
                 <?php
                 header("Refresh: 1; url=http://localhost/Haber%20Sitesi%20Proje/cnew_haber.php");
+                
 
             }
             else

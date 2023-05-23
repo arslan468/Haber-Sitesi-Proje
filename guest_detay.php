@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haberler</title>
     <link rel="stylesheet" href="news.css">
@@ -150,7 +151,8 @@
 </div>
 
 <div id = "geridon">
-    <a href="guest.php">Geri Dön</a>
+    <a  href="guest.php">Geri Dön</a>   
+    <!-- <p class="text-xl hover:text-5xl transition-all "> Geri Dön</p> -->
 </div>
 
 
@@ -218,22 +220,22 @@
             <div class="col-md-12">
                 <form method = "POST">
                     <div class="form-outline mb-4">
-                      <input placeholder="Ad-Soyad" name = "ad" type="text" id="form4Example1" class="form-control" />
+                      <input placeholder="Ad-Soyad" required="required" name = "ad" type="text" id="form4Example1" class="form-control" />
                       <label class="form-label text-light" for="form4Example1">Ad-Soyad</label>
                     </div>
                   
                     <div class="form-outline mb-4">
-                      <input placeholder="Email" type="email" name ="mail" id="form4Example2" class="form-control" />
+                      <input placeholder="Email" required="required" type="email" name ="mail" id="form4Example2" class="form-control" />
                       <label class="form-label text-light" for="form4Example2">Email</label>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input placeholder="Konu" type="text" name = "konu" id="form4Example1" class="form-control" />
+                        <input placeholder="Konu" type="text" required="required" name = "konu" id="form4Example1" class="form-control" />
                         <label class="form-label text-light" for="form4Example1">Konu</label>
                     </div>
                   
                     <div class="form-outline mb-4">
-                      <textarea placeholder="Mesajınız" name="mesaj" class="form-control" id="form4Example3" rows="2"></textarea>
+                      <textarea placeholder="Mesajınız" required="required" name="mesaj" class="form-control" id="form4Example3" rows="2"></textarea>
                       <label class="form-label text-light" for="form4Example3">Mesajınız</label>
                     </div>
                   

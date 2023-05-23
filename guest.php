@@ -204,6 +204,7 @@
         ?>
     </div>
   </div>
+
 <footer class="iletisim">
     <div class="container">
         <h1 id = "baslik">
@@ -213,22 +214,22 @@
             <div class="col-md-12">
                 <form method = "POST">
                     <div class="form-outline mb-4">
-                      <input placeholder="Ad-Soyad" name = "ad" type="text" id="form4Example1" class="form-control" />
+                      <input placeholder="Ad-Soyad" required="required" name = "ad" type="text" id="form4Example1" class="form-control" />
                       <label class="form-label text-light" for="form4Example1">Ad-Soyad</label>
                     </div>
                   
                     <div class="form-outline mb-4">
-                      <input placeholder="Email" type="email" name ="mail" id="form4Example2" class="form-control" />
+                      <input placeholder="Email" required="required" type="email" name ="mail" id="form4Example2" class="form-control" />
                       <label class="form-label text-light" for="form4Example2">Email</label>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input placeholder="Konu" type="text" name = "konu" id="form4Example1" class="form-control" />
+                        <input placeholder="Konu" type="text" required="required" name = "konu" id="form4Example1" class="form-control" />
                         <label class="form-label text-light" for="form4Example1">Konu</label>
                     </div>
                   
                     <div class="form-outline mb-4">
-                      <textarea placeholder="Mesajınız" name="mesaj" class="form-control" id="form4Example3" rows="2"></textarea>
+                      <textarea placeholder="Mesajınız" required="required" name="mesaj" class="form-control" id="form4Example3" rows="2"></textarea>
                       <label class="form-label text-light" for="form4Example3">Mesajınız</label>
                     </div>
                   

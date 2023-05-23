@@ -111,6 +111,10 @@
             <i class="fa fa-star-o" aria-hidden="true"></i>
             Haber Güncelle/Sil
         </a>
+        <a href="cnew_haber.php">
+            <i class="fa fa-laptop" aria-hidden="true"></i>
+            Gelen Mesajlar
+        </a>
         <a class="exit" href="esignin.php">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
             Çıkış

@@ -82,13 +82,6 @@
             <img style="width: 50px; height: 50px;" src="up.png" alt="">
         </a>
     </div>
-
-    <!-- <form class = "form" action="">
-        <input class = "inut" type="text" placeholder = "İD" id = "yazdir" name = "id">
-        <input class = "btnstyle" type="submit" value = "Seçili Haberi Sil">
-    </form> -->
-
-
     <aside id = "deneme">
         <p style="font-size: 25px; color:#EEEEEE;"> Menü </p>
         <a href="aindex.php">
@@ -102,6 +95,10 @@
         <a href="delnews.php">
             <i class="fa fa-star-o" aria-hidden="true"></i>
             Haber Güncelle/Sil
+        </a>
+        <a href="feedback.php">
+            <i class="fa fa-laptop" aria-hidden="true"></i>
+            Gelen Mesajlar
         </a>
         <a class="exit" href="esignin.php">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -120,7 +117,7 @@
             else{
             }
         ?>  
-    </aside>
+</aside>
 
     <div class="anaforum1">
         <table class="table table-dark table-striped">

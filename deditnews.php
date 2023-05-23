@@ -64,8 +64,7 @@
         <input class = "inut" type="text" placeholder = "Editör Soyad">
         <input class = "inut" type="text" placeholder = "Haberin Yazıldığı tarih">
     </div> -->
-
-    <aside id = "deneme">
+<aside id = "deneme">
         <p style="font-size: 25px; color:#EEEEEE;"> Menü </p>
         <a href="aindex.php">
             <i class="fa fa-user-o" aria-hidden="true"></i>
@@ -78,6 +77,10 @@
         <a href="delnews.php">
             <i class="fa fa-star-o" aria-hidden="true"></i>
             Haber Güncelle/Sil
+        </a>
+        <a href="feedback.php">
+            <i class="fa fa-laptop" aria-hidden="true"></i>
+            Gelen Mesajlar
         </a>
         <a class="exit" href="esignin.php">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -96,7 +99,7 @@
             else{
             }
         ?>  
-    </aside>
+</aside>
     <div class="editform">
         <form id="goform" method='POST'>
             <?php

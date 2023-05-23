@@ -55,6 +55,10 @@
             <i class="fa fa-star-o" aria-hidden="true"></i>
             Haber Güncelle/Sil
         </a>
+        <a href="feedback.php">
+            <i class="fa fa-laptop" aria-hidden="true"></i>
+            Gelen Mesajlar
+        </a>
         <a class="exit" href="esignin.php">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
             Çıkış
@@ -72,7 +76,7 @@
             else{
             }
         ?>  
-    </aside>
+</aside>
 
     <div class="editform">
         <form name = "goforum" id = "goforum" method = "POST" action = "haber_connect.php">

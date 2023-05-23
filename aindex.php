@@ -111,7 +111,7 @@
             <i class="fa fa-star-o" aria-hidden="true"></i>
             Haber Güncelle/Sil
         </a>
-        <a href="cnew_haber.php">
+        <a href="feedback.php">
             <i class="fa fa-laptop" aria-hidden="true"></i>
             Gelen Mesajlar
         </a>

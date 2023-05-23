@@ -1,209 +1,25 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haberler</title>
-    <link rel="stylesheet" href="news.css">
-    <link rel="stylesheet" href="signin.css">
-    <link rel="stylesheet" href="position.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto:wght@100;500&family=Source+Sans+Pro:wght@700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Roboto:wght@100;500&family=Source+Sans+Pro:wght@700&display=swap');
-        body
-        {
-            background-color: #222831;
-            font-family: 'Roboto';
-            margin: 0;
-        }
-
-        .resim
-        {
-            display: flex;
-            margin: auto;
-            border-radius:25px;
-            width: 800px;
-            height: 445px;
-        }
-
-
-        .pozisyon
-        {
-            margin: right;
-            padding-top: 10px;
-            padding-left:180px;
-        }
-
-        .border
-        {
-            border-radius:25px;
-            border-color:#00ADB5;
-        }
-
-        .lookup 
-        {
-            position: fixed;
-            border-radius: 35px;
-            width: 50px;
-            height: 50px;
-            top: 89%;
-            left: 94%;
-            transition: 0.5s;
-            z-index: 1;
-        }
-
-        .lookup:hover
-        {
-            background-color:#676e79 ;
-            transition: 0.5s;
-        }
-
-        .spotify
-        {
-            position: fixed;
-            width:250px;
-            height:900px;
-            top:12%;
-            left:3%;
-            z-index: -1;
-
-        }
-
-        #geridon
-        {
-            position: fixed;
-            top:0px;
-            font-family: 'Roboto';
-            color: #393E46;
-            background-color: #00ADB5;
-            width: 200px;
-            height: 70px;
-            border-radius: 0px 30px 30px 0px;
-        }
-
-        #geridon a 
-        {
-            font-size: 22px;
-            color: #393E46;
-            display: block;
-            padding: 15px;
-            font-family: 'Roboto';
-            padding-left: 30px;
-            text-decoration: none;
-            transition: 1s;
-            -webkit-tap-highlight-color:transparent;
-        }
-
-        #geridon a:hover
-        {
-            padding: 30px;
-            font-size: 30px;
-            transition: 2s;
-        }
-
-        .iletisim
-        {
-            width: 100%;
-            height: 600px;
-            background-color: #393E46;
-            bottom: 0px;   
-        }
-
-        #baslik
-        {
-            text-align: center;
-            color: white;
-        }
-
-    </style>
-    <script>
-        $('a.top').click(function(){
-        $(document.body).animate({scrollTop : 0},8000);
-        return false;    });
-        console.log("Haber");
-    </script>
+    <title>Document</title>
 </head>
-<body>
-
-<!-- <div class="lookup">
-        <a class="top" href="#">
-            <img style="width: 50px; height: 50px;" src="up.png" alt="">
-        </a>
-</div>
-
-<div class="spotify">
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXoHqNlfcLJb?utm_source=generator&theme=0" width="100%" height="680" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-</div>
-
-<div id = "geridon">
-    <a href="aindex.php">Geri Dön</a>
-</div> -->
-
-
-
-<footer class="iletisim">
-    <div class="container">
-        <h1 id = "baslik mt-5">
-            İletişim Formu
-        </h1>
-        <div class="row">
-            <div class="col-md-12">
-                <form>
-                    <div class="form-outline mb-4">
-                      <input placeholder="Ad-Soyad" type="text" id="form4Example1" class="form-control" />
-                      <label class="form-label text-light" for="form4Example1">Ad-Soyad</label>
-                    </div>
-                  
-                    <div class="form-outline mb-4">
-                      <input placeholder="Email" type="email" id="form4Example2" class="form-control" />
-                      <label class="form-label text-light" for="form4Example2">Email</label>
-                    </div>
-
-                    <div class="form-outline mb-4">
-                        <input placeholder="Konu" type="text" id="form4Example1" class="form-control" />
-                        <label class="form-label text-light" for="form4Example1">Konu</label>
-                      </div>
-                  
-
-                    <div class="form-outline mb-4">
-                      <textarea placeholder="Mesajınız" class="form-control" id="form4Example3" rows="4"></textarea>
-                      <label class="form-label text-light" for="form4Example3">Mesajınız</label>
-                    </div>
-                  
-                    <div class="form-check d-flex justify-content-center mb-4">
-                        <input type="submit" name = "btnNewuser" id = "btnNewuser" value = "Gönder" class = "btnstyle">
-                    </div>
-                  </form>
-            </div>
+<body style="background-color: #222831">
+    <div class="mt-11">
+        <div class="mt-3 hover:bg-gray-900  w-36 m-auto h-18 rounded-full p-3">
+            <form method = "POST">
+                <button class=" text-green-500 font-extrabold text-4xl text-center" type="submit" name="btnSil">Onayla</button>
+            </form>
         </div>
-
-
-
+        <div class="mt-3 transition-all hover:bg-gray-900 w-32 m-auto h-18 rounded-full p-3">
+            <form method ="POST" action="feedback.php">
+                    <input class=" text-green-500 font-extrabold text-4xl text-center" type="submit" name = "btngonder" id ="btnsignin" value = "İPTAL" class ="btnstyle">
+            </form>
+        </div>
     </div>
-</footer>
+    
 </body>
 </html>
-
-
-
-<!-- <div class='border mt-5 p-5 bg-dark text-light card'>
-                    <div class='row'>
-                        <div class='col-md-7 px-3'>
-                            <div class='card-block px-6'>
-                                <h4 class='text-info card-title'> $haberbaslig</h4>
-                                <p class='card-text'>$haber</p><br>
-                                <a href='detay.php' id = onmouseover='gettID(".$data["id"].")' class='btn btn-secondary'>Haberi Oku</a>
-                            </div>
-                        </div>
-
-                        <div class='col-md-5'>
-                            <div class='carousel-item active'>
-                                <a href='detay.php' id = onmouseover='gettID(".$data["id"].")''> <img class='d-block resim' src='$img'></a>
-                                <p class='pozisyon  card-text'><small class='text-secondary'>$name $surname- $time - </small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->

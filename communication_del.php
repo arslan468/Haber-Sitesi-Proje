@@ -150,63 +150,62 @@ ob_start();
 
 
 
-<div class="transition-all m-auto mt-10 w-1/2 hover:bg-slate-800 rounded-full">
-    <h1 class ="text-3xl text-zinc-300 text-center" >Bu haberi silmek istediğinize eminmisiniz <b style = "color:red;">!!!</h1>
-    <form    method = "POST" class ="text-center mt-2" action = "delnews.php">
-            <input class= "text-center hover:text-4xl transition-all text-green-500 ml-2 text-2xl " type="submit" name = "btngonder"  value = "İPTAL">
-    </form>
-    <form method = "POST" class= "text-center mt-2 ">
-        <button  type="submit" class = " hover:text-4xl transition-all text-3xl" name="btnSil">Sil</button>
-            <!-- <input style="color:red;" type="submit" name = "btnsil" id ="btnsignin" value = "SİL" class ="btnstyle"> -->
-    </form>
-</div>
+<div class="mt-11">
+        <div class="mt-3 hover:bg-gray-900  w-36 m-auto h-18 rounded-full p-3">
+            <form method = "POST">
+                <button class="hover:text-green-300 text-green-500 font-extrabold text-4xl text-center" type="submit" name="btnSil">Onayla</button>
+            </form>
+        </div>
+        <div class="mt-3 transition-all hover:bg-gray-900 w-32 m-auto h-18 rounded-full p-3">
+            <form method ="POST" action="feedback.php">
+                    <input class="hover:text-green-300 text-green-500 font-extrabold text-4xl text-center" type="submit" name = "btngonder" id ="btnsignin" value = "İPTAL" class ="btnstyle">
+            </form>
+        </div>
+    </div>
 
 
 
 
 
 
-<div class="container m-auto">  
+<div class=" container">  
         <?php
             
             include("zdbbaglanti_haber.php");
             $haberid = @$_GET["id"];
-            $habercek = $connection->prepare("SELECT * FROM haberbilgileri WHERE id=?");
+            $habercek = $connection->prepare("SELECT * FROM communication WHERE id=?");
             $habercek->execute(array($haberid));
 
             while ($cekim = $habercek->fetch(PDO::FETCH_ASSOC))
             {
 
                 $id          = $cekim['id'];
-                $haberbaslig = $cekim['haberBasligi']; 
-                $haber       = $cekim['haber'];
-                $name        = $cekim['editorname'];
-                $surname     = $cekim['editorsurname'];
+                $haberbaslig = $cekim['guestName']; 
+                $haber       = $cekim['guestGmail'];
+                $name        = $cekim['subject'];
+                $surname     = $cekim['message'];
                 $time        = $cekim['time'];
-                $img         = $cekim['link'];
-                $views       = $cekim['views'];
-                
-                $views+=1;
 
                 echo "
-                    <div class='mt-5 w-full pl-10'>
-                        <div class=''>
-                            <h1 class='mt-5 text-3xl text-emerald-300 text-center'>
-                            $haberbaslig
-                            </h1>
+                    <div class='m-auto ml-80 '>
+                        <div class='m-auto col-md-12'>
+                            <h1 class = 'text-2xl text-orange-300 text-center mt-4'>Ad/Soyad: $haberbaslig</h1>
                         </div>
-                        <div class='mt-5'>
-                            <img class='border-2 hover:border-x-indigo-500 border-y-indigo-500 border-spacing-32 resim' src='$img'> 
-                        </div>
-                        <div class='col-md-6 mt-5 mb-5'>
-                        <h3 id = 'icerik' class= 'text-violet-300 font-mono text-xl mt-8'>&nbsp;$haber</h3>
+                        <div class='col-md-12'>
+                            <h1 class = 'text-2xl text-orange-300 text-center mt-4'>E-mail: $haber</h1>
                         </div> 
-                        <div class='col-md-3'></div>
-                    </div>
+                        <div class='col-md-12'>
+                        <h1 class = 'text-2xl text-orange-300 text-center mt-4'>Mesajın yazıldığı tarih: $time</h1>
+                        </div>  
+                        <div class='col-md-12'>
+                        <h1 class = 'text-2xl text-orange-500 text-center mt-4'>Mesajın Konusu: $name</h1>
+                        </div>  
+                        <div class='col-md-12'>
+                        <h1 class = 'text-2xl text-orange-500 text-center mt-4'>Mesaj: $surname</h1>
+                        </div> 
 
+                    </div>
                 ";
-                $goruntu = $connection->prepare("UPDATE haberbilgileri SET views=? WHERE id=$id");
-                $goruntu->execute(array($views));
             }
         ?>
     </div>
@@ -221,27 +220,10 @@ ob_start();
     {
         echo "<h1>girdi</h1>";
         echo $haberid;
-        $sql = $connection->prepare("DELETE FROM haberbilgileri WHERE id=?"); 
+        $sql = $connection->prepare("DELETE FROM communication WHERE id=?"); 
         $sql->execute(array($haberid));
-        header("Location: delnews.php");
+        header("Location: feedback.php");
     }
 
-    if(isset($_POST["btnUser"]))
-    {
-        include("giris_connect.php");
-        $table = $connection->prepare("INSERT INTO communication set guestName = ?, guestGmail = ?, subject=?, message=?");
-        $gonder = $table->execute(array($_POST['ad'], $_POST['mail'], $_POST['konu'], $_POST['mesaj']));
 
-        if($gonder)
-        {
-            echo
-            "<script>
-                alert('Mesajınız Ulaştı En Kısa Sürede Size Dönüş Yapacağız');
-            </scri>";
-        }
-        else
-        {
-
-        }
-    }
 ?>
